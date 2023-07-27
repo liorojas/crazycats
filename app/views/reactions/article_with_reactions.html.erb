@@ -1,0 +1,11 @@
+<h1>Post u liked it!</h1>
+<ul>
+ <% @articles.each do |article| %>
+ <li>
+ <%= article.description %> - <%= article.reactions.find_by(user_id: current_user.id).kind %>
+ </li>
+ <p>
+ <%= link_to "Show this post", article %>
+ </p>
+ <% end %>
+</ul>
