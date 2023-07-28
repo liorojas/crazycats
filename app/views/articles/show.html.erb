@@ -2,18 +2,23 @@
 
 <%= render @article %>
 
-<% if @article.user_id == current_user.id %>
+<%if current_user%>
 <div>
-  <%= link_to "Edit this article", edit_article_path(@article) %> |
-
-  <%= link_to "Destroy this article", @article, method: :delete %>
-</div>
-<%end%>
-<div>
+<%= render 'comments/articlecomments'%>
+<%= render 'comments/form' %>
   <%= render "reactions/options"%>
 </div>
+<% elsif @article.user_id == current_user.id %>
+<div>
+  <%= link_to "Edit this article", edit_article_path(@article) %> |
+  <%= link_to "Destroy this article", @article, method: :delete %>
+  <%= render 'comments/articlecomments'%>
+  <%= render 'comments/form' %>
+  <%= render "reactions/options"%>
+</div>
+<%end%>
+<%#end%>
+
 <div>
   <%= link_to "Back to articles", articles_path %>
 </div>
-<%= render 'comments/articlecomments'%>
-<%= render 'comments/form' %>

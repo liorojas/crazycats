@@ -1,6 +1,6 @@
 <div>
     <ul>
-    <% Reaction.kind.each do |kind|%>
+    <% Reaction.kinds.each do |kind|%>
     <li> <%= @article.count_with_kind(kind)%></li>
     <%end%>
     </ul>
