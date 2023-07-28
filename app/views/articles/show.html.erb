@@ -8,7 +8,7 @@
 <%= render 'comments/form' %>
   <%= render "reactions/options"%>
 </div>
-<% elsif @article.user_id == current_user.id %>
+<% if @article.user_id == current_user.id %>
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
   <%= link_to "Destroy this article", @article, method: :delete %>
@@ -16,8 +16,9 @@
   <%= render 'comments/form' %>
   <%= render "reactions/options"%>
 </div>
+
 <%end%>
-<%#end%>
+<%end%>
 
 <div>
   <%= link_to "Back to articles", articles_path %>
